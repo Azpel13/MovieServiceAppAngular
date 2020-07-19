@@ -1,0 +1,39 @@
+<div class="container custom-container">
+    <div class="col-md-12">
+      <h3 class="mb-3 text-center">Create Employee</h3>
+      <div class="form-group">
+        <input type="number" [(ngModel)]="newMovie.idPelicula" class="form-control" placeholder="Id Pelicula">
+      </div>
+
+      <div class="form-group">
+        <input type="text" [(ngModel)]="newMovie.nombre" class="form-control" placeholder="Nombre">
+      </div>
+  
+      <div class="form-group">
+        <input type="date" [(ngModel)]="newMovie.fechaEstreno" class="form-control" placeholder="Fecha estreno">
+      </div>
+
+      <div class="form-group">
+        <input type="number" [(ngModel)]="newMovie.duracionMinutos" class="form-control" placeholder="Duración en minutos">
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="newMovie.sinopsis" class="form-control" placeholder="Sinopsis">
+      </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Genero</label>
+    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="newMovie.idGenero">
+      <option *ngFor="let opt of genList" [ngValue]="opt.idGenero" >{{opt.nombre}}</option>
+    </select>
+  </div>
+
+      <!-- <div class="form-group">
+        <input type="date" [(ngModel)]="" class="form-control" placeholder="Genero">
+      </div> -->
+  
+      <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" (click)="addMovie(newMovie)">Create Movie</button>
+      </div>
+  
+    </div>
+  </div>
+

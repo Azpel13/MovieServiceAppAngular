@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-12">
+        <h1>Consumiendo servicios API</h1>
+        <table class="table table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha de estreno</th>
+                    <th scope="col">Duracion minutos</th>
+                    <th scope="col">Sinopsis</th>
+                    <th scope="col">Genero</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let mov of movies;let i = index'>
+                    <th scope="row">{{mov.idPelicula}}</th>
+                    <td>{{mov.nombre}}</td>
+                    <td>{{mov.frechaEstreno}}</td>
+                    <td>{{mov.duracionMinutos}}</td>
+                    <td>{{mov.sinopsis}}</td>
+                    <td>{{mov.nombreGenero}}</td>
+                    <td><button type="button" class="btn btn-primary"
+                            routerLink="/editMovie/{{mov.idPelicula}}">Edit</button>
+                    </td>
+                    <td><button type="button" class="btn btn-danger"
+                            (click)="deleteMovie(mov.idPelicula,i)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 text-center my-2">
+        <a type="button" class="btn btn-success" [routerLink]="['createMovie']">Add Movie</a>
+    </div>
+</div>
+
+<div class="row my-2">
+    <div class="col-9 text-center">
+        <input type="number" [(ngModel)]="id" class="form-control" placeholder="id">
+    </div>
+    <div class="col-3 text-center">
+        <a type="button" class="btn btn-success" (click)="search(id)">Search</a>
+    </div>
+</div>
+
+<div class="row" *ngIf="value">
+    <div class="col-12">
+        <table class="table table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha de estreno</th>
+                    <th scope="col">Duracion minutos</th>
+                    <th scope="col">Sinopsis</th>
+                    <th scope="col">Genero</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let mov of movies;let i = index'>
+                    <th scope="row">{{mov.idPelicula}}</th>
+                    <td>{{mov.nombre}}</td>
+                    <td>{{mov.frechaEstreno}}</td>
+                    <td>{{mov.duracionMinutos}}</td>
+                    <td>{{mov.sinopsis}}</td>
+                    <td>{{mov.nombreGenero}}</td>
+                    <td><button type="button" class="btn btn-primary"
+                            routerLink="/editMovie/{{mov.idPelicula}}">Edit</button>
+                    </td>
+                    <td><button type="button" class="btn btn-danger"
+                            (click)="deleteMovie(mov.idPelicula,i)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
